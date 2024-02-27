@@ -1,93 +1,109 @@
 # Fullstack-Golang-Flutter
 
-SERVER SIDE
+## SERVER SIDE
 
-1. Create Server Folder
-   ```
+1. **Create Server Folder**
+
+   - How to create server folder
+
+   ```bash
    mkdir server
    ```
-2. Go to server folder
+
+   - Navigate to server folder
+
+   ```bash
    cd server
+   ```
 
-- Initialize Golang setup
+2. **Intialize**
 
-  ```
-  go mod init server
-  ```
+   - Initialize Golang setup
 
-- Install router package from gin-gonic
+   ```
+   go mod init server
+   ```
 
-  ```
-  go get github.com/gin-gonic/gin
-  ```
+   - Install router package from gin-gonic
 
-- Install MySQL package from gorm
-  ```
-  go get -u gorm.io/gorm
-  ```
-  or
-  ```
-  go get -u gorm.io/gorm
-  ```
-  then
-  ```
-  go get -u gorm.io/driver/mysql
-  ```
+   ```
+   go get github.com/gin-gonic/gin
+   ```
 
-3. Create main.go file
+   - Install MySQL package from gorm
 
-- How to add file
+   ```
+   go get -u gorm.io/gorm
+   ```
 
-  ```
-  touch main.go
-  ```
+   - Or we can use this
 
-- How to run
-  ```
-  go run main.go
-  ```
+   ```
+   go get -u gorm.io/gorm
+   ```
 
-4. Due to restrictions, localhost cannot be used. Please utilize the IPv4 Address instead.
+   - Then copy and paste this
 
-   - Open cmd
-     ```
-     ipconfig
-     ```
-   - Create .env for your IPv4 Address
+   ```
+   go get -u gorm.io/driver/mysql
+   ```
 
-     ```
-     touch .env
-     ```
+3. **Create main.go file**
 
-     then copy and paste
+   - How to add file
 
-     ```go
-     IPv4_ADDRESS=YOUR IPv4 ADDRESS
-     ```
+   ```
+   touch main.go
+   ```
 
-   - Copy and paste the IPv4 Address into the `router.Run()` function.
+    - How to run
+    ```
+    go run main.go
+    ```
 
-     ```go
-     package main
+4. **Setup PORT**
+ 
+    #### Due to restrictions, localhost cannot be used. Please utilize the IPv4 Address instead.
 
-     import (
-         "net/http"
+- Open cmd and then type this
+    ```
+    ipconfig
+    ```
+- Create .env for your IPv4 Address
 
-         "github.com/gin-gonic/gin"
-     )
+    ```
+    touch .env
+    ```
 
-     func main() {
-         // Create router from gin, will automatically import
-         router := gin.Default()
-         router.GET("/", func(c *gin.Context) {
-             c.JSON(http.StatusOK, "Welcome to Test API")
-         })
+- then copy and paste
 
-        // by default 8080
-	    // check your ip address in cmd, then type ipconfig
-	    // copy & paste IPv4 Address
-	    // Make sure put in .env 
-	    ipv4Address := os.Getenv("IPv4_ADDRESS")
-	    router.Run(ipv4Address + ":8080")
-     }
-     ```
+    ```go
+    IPv4_ADDRESS=YOUR IPv4 ADDRESS
+    ```
+
+- Copy and paste the IPv4 Address into the `router.Run()` function.
+
+    ```go
+    package main
+
+    import (
+        "net/http"
+
+        "github.com/gin-gonic/gin"
+    )
+
+    func main() {
+        // Create router from gin, will automatically import
+        router := gin.Default()
+        router.GET("/", func(c *gin.Context) {
+            c.JSON(http.StatusOK, "Welcome to Test API")
+        })
+
+    // by default 8080
+    // check your ip address in cmd, then type ipconfig
+    // copy & paste IPv4 Address
+    // Make sure put in .env
+    ipv4Address := os.Getenv("IPv4_ADDRESS")
+    router.Run(ipv4Address + ":8080")
+    }
+    ```

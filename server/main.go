@@ -3,11 +3,20 @@ package main
 import (
 	"net/http"
 	"os"
+	"server/config"
+	"server/models"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+	// Database
+	db := config.DatabaseConnection()
+	db.AutoMigrate(&models.User{}, &models.Task{})
+	// Check if the owner has already been created or not
+	config.CreateOwnerAccount(db)
+
+
 	// Create router from gin, will automatically import
 	router := gin.Default()
 	router.GET("/",func(c *gin.Context) {

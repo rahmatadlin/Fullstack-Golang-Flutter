@@ -65,23 +65,23 @@
  
     #### Due to restrictions, localhost cannot be used. Please utilize the IPv4 Address instead.
 
-- Open cmd and then type this
+    - Open cmd and then type this
     ```
     ipconfig
     ```
-- Create .env for your IPv4 Address
+    - Create .env for your IPv4 Address
 
     ```
     touch .env
     ```
 
-- then copy and paste
+    - then copy and paste in .env file
 
     ```go
     IPv4_ADDRESS=YOUR IPv4 ADDRESS
     ```
 
-- Copy and paste the IPv4 Address into the `router.Run()` function.
+    - Copy and paste the IPv4 Address into the `router.Run()` function.
 
     ```go
     package main
@@ -106,4 +106,9 @@
     ipv4Address := os.Getenv("IPv4_ADDRESS")
     router.Run(ipv4Address + ":8080")
     }
+    ```
+
+     - Run again
+    ```
+    go run main.go
     ```

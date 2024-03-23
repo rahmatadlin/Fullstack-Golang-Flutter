@@ -38,19 +38,19 @@ func main() {
 	router.POST("/tasks", taskController.Create)
 	router.DELETE("/tasks/:id", taskController.Delete)
 	router.PATCH("/tasks/:id/submit", taskController.Submit)
-	// router.PATCH("/tasks/:id/reject", taskController.Reject)
-	// router.PATCH("/tasks/:id/fix", taskController.Fix)
-	// router.PATCH("/tasks/:id/approve", taskController.Approve)
-	// router.GET("/tasks/:id", taskController.FindById)
-	// router.GET("/tasks/review/asc", taskController.NeedToBeReview)
-	// router.GET("/tasks/progress/:userId", taskController.ProgressTasks)
-	// router.GET("/tasks/stat/:userId", taskController.Statistic)
-	// router.GET("/tasks/user/:userId/:status", taskController.FindByUserAndStatus)
+	router.PATCH("/tasks/:id/reject", taskController.Reject)
+	router.PATCH("/tasks/:id/fix", taskController.Fix)
+	router.PATCH("/tasks/:id/approve", taskController.Approve)
+	router.GET("/tasks/:id", taskController.FindById)
+	router.GET("/tasks/review/asc", taskController.NeedToBeReview)
+	router.GET("/tasks/progress/:userId", taskController.ProgressTasks)
+	router.GET("/tasks/stat/:userId", taskController.Statistic)
+	router.GET("/tasks/user/:userId/:status", taskController.FindByUserAndStatus)
 
 	// by default 8080
 	// check your ip address in cmd, then type ipconfig
 	// copy & paste IPv4 Address
-	// Make sure put in .env 
+	// Make sure put into .env 
 	ipv4Address := os.Getenv("IPv4_ADDRESS")
 	router.Run(ipv4Address + ":8080")
 }

@@ -1,4 +1,4 @@
-import 'package:course_tusk_app/data/models/task.dart';
+import 'package:client/data/models/task.dart';
 import 'package:intl/intl.dart';
 
 String dateByStatus(Task task) {

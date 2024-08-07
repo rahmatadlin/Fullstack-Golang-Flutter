@@ -6,7 +6,7 @@ import 'package:client/presentation/widgets/app_button.dart';
 import 'package:d_input/d_input.dart';
 import 'package:d_session/d_session.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

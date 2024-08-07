@@ -7,3 +7,4 @@ A new Flutter project.
 
 flutter devices
 flutter run
+ms-settings:developers
